@@ -12,12 +12,8 @@ class GlobalConfig:
             raise Exception("Missing NEAR_ENV!")
 
         if self._near_env == "mainnet":
-            self._rpc_url = ["https://rpc.mainnet.near.org", ] if not os.getenv('NEAR_RPC_URL') else os.getenv('NEAR_RPC_URL')
-            self._burrow_contract = "contract.main.burrow.near"
+            self._rpc_url = ["https://rpc.mainnet.near.org", ]
             self._private_key = "" if not os.getenv('PRIVATE_KEY') else os.getenv('PRIVATE_KEY')
-            self._deposit_yocto = 1
-            self._priceoracle_contract = "priceoracle.near"
-            self._near_contract = "wrap.near"
             self._signer_account_id = "juaner.near" if not os.getenv('SIGNER_ACCOUNT_ID') else os.getenv('SIGNER_ACCOUNT_ID')
             self._buyback_contract = "buyback.juaner.near"
             self._buyback_token_in_contract = "a0b86991c6218b36c1d19d4a2e9eb0ce3606eb48.factory.bridge.near"
@@ -25,20 +21,18 @@ class GlobalConfig:
             self._buyback_pool_one = "3"
             self._buyback_pool_two = "3474"
             self._indexer_url = "https://indexer.ref.finance/list-top-pools"
+            self._near_rpc = "https://rpc.mainnet.near.org"
         elif self._near_env == "testnet":
-            self._rpc_url = ["https://rpc.testnet.near.org", ] if not os.getenv('NEAR_RPC_URL') else os.getenv('NEAR_RPC_URL')
-            self._burrow_contract = "contract.1689937928.burrow.testnet"
-            self._private_key = "" if not os.getenv('PRIVATE_KEY_DEV') else os.getenv('PRIVATE_KEY_DEV')
-            self._deposit_yocto = 1
-            self._priceoracle_contract = "priceoracle.testnet"
-            self._near_contract = "wrap.testnet"
-            self._signer_account_id = "juaner.testnet" if not os.getenv('SIGNER_ACCOUNT_ID_DEV') else os.getenv('SIGNER_ACCOUNT_ID_DEV')
+            self._rpc_url = ["https://rpc.testnet.near.org", ]
+            self._private_key = "" if not os.getenv('PRIVATE_KEY') else os.getenv('PRIVATE_KEY')
+            self._signer_account_id = "juaner.testnet" if not os.getenv('SIGNER_ACCOUNT_ID') else os.getenv('SIGNER_ACCOUNT_ID')
             self._buyback_contract = "dev-1702289480516-51259361492553"
             self._buyback_token_in_contract = "usdt.fakes.testnet"
             self._buyback_token_out_contract = "token.1689937928.burrow.testnet"
             self._buyback_pool_one = "465"
             self._buyback_pool_two = "714"
-            self._indexer_url = "https://testnet-indexer.ref-finance.com/list-top-pools"
+            self._indexer_url = "https://dev-indexer.ref-finance.com/list-pools"
+            self._near_rpc = "https://rpc.testnet.near.org"
         else:
             raise Exception("Invalid NEAR_ENV!")
 
@@ -51,24 +45,8 @@ class GlobalConfig:
         return self._rpc_url
 
     @property
-    def burrow_contract(self):
-        return self._burrow_contract
-
-    @property
     def private_key(self):
         return self._private_key
-
-    @property
-    def deposit_yocto(self):
-        return self._deposit_yocto
-
-    @property
-    def priceoracle_contract(self):
-        return self._priceoracle_contract
-
-    @property
-    def near_contract(self):
-        return self._near_contract
 
     @property
     def signer_account_id(self):
@@ -97,3 +75,7 @@ class GlobalConfig:
     @property
     def indexer_url(self):
         return self._indexer_url
+
+    @property
+    def near_rpc(self):
+        return self._near_rpc
