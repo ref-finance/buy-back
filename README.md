@@ -1,6 +1,6 @@
 # buy-back
 
-### 运行前需要修改config文件中的账号配置
+### Before running, it is necessary to modify the account configuration in the config file
 ```
 private_key:Change to execute the private key of the account
 signer_account_id:Change to the account that needs to be executed
