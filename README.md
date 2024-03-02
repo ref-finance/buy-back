@@ -1,5 +1,15 @@
 # buy-back
 
+### 运行前需要修改config文件中的账号配置
+```
+private_key:Change to execute the private key of the account
+signer_account_id:Change to the account that needs to be executed
+buyback_contract:Modify the contract address as needed for execution
+buyback_token_in_contract:Token that requires buyback
+buyback_token_out_contract:Token after buyback
+buyback_pool_one、buyback_pool_two:The pool involved in the token will calculate the number of swaps based on the configured token and pool
+```
+
 ### Use crontab to schedule execution
 #### Enter the project/backends directory and execute the following command:
 
