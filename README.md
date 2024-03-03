@@ -33,6 +33,8 @@ near create-account $BURN_ACCOUNT --masterAccount $MASTER --initialBalance 1 --a
 near create-account $COMPANY_ACCOUNT --masterAccount $MASTER --initialBalance 1 --accountId $MASTER
 near create-account $REWARD_ACCOUNT --masterAccount $MASTER --initialBalance 1 --accountId $MASTER
 
+cd contract
+make release
 near deploy $BUYBACK res/buyback_release.wasm --account_id=$BUYBACK || true
 
 near call $BUYBACK new '{"owner_id": "'$REF_OWNER'", "burn_account_id": "'$BURN_ACCOUNT'", "company_account_id": "'$COMPANY_ACCOUNT'", "reward_account_id": "'$REWARD_ACCOUNT'", "buyback_token_id": "'$BB_TOKEN_ACCOUNT'"}' --account_id=$BUYBACK || true

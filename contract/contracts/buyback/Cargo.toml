@@ -1,0 +1,22 @@
+[package]
+name = "buyback"
+version = "0.1.0"
+authors = ["MagicGordon <gordon@ref.finance>"]
+edition = "2018"
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+near-sdk = "4.1.1"
+near-contract-standards = "4.1.1"
+near-sys = "0.2.0"
+uint = { version = "0.9.5", default-features = false }
+
+[dev-dependencies]
+workspaces = "0.7.0"
+tokio = { version = "1.33.0", features = ["full"] }
+near-units = "0.2.0"
+
+mock-ft = { path = "../mock-ft" }
+mock-ref-exchange = { path = "../mock-ref-exchange" }
